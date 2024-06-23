@@ -1,44 +1,23 @@
-import React, { Component } from "react";
-import { View, Text, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Button, Alert } from "react-native";
 
 function App(){
-  return(
-    <View>
-      <Text>Olá, Mundo !</Text>
-    </View>
-  );
-}
+  const [nome, setNome] = useState('usuário');
+  const [idade, setIdade] = useState(20);
 
-class App2 extends Component{
-  render(){
-
-    return(
-      <View>
-        <Text>Olá, Mundo!</Text>
-        {/*Adicionando uma propriedade style no Text*/}
-        <Text style={{ color: 'red', fontSize: 25, margin: 15 }}>Meu primeiro app.</Text>
-        <Text style={{ fontSize: 18, color: 'blue' }}>
-          Edinara Alencar
-        </Text>
-
-        <Logo largura={300} altura={300} nome={'Desenvolvedora Full-stack'}/>
-      </View>
-      
-    );
+  function entrar(nome, idade){
+    setNome(nome);
+    setIdade(idade);
   }
 
-}
-
-export default App2;
-
-function Logo(props){
-
-  let img = 'https://services.meteored.com/img/article/inteligencia-artificial-aprende-a-reconstruir-imagens-vistas-por-pessoas-ciencia-fotos-1679175318563_1280.jpg';
-
   return(
     <View>
-      <Image source={{ uri: img }} style={{ width: props.largura, height: props.altura }} />
-      <Text> {props.nome} </Text>
+      <Button title="Mudar nome" onPress={ () => entrar('Nara Alencar', 25)} />
+
+      <Text style={{ fontSize: 18, margin: 15 }}> Olá, {nome} </Text>
+      <Text> Você tem {idade} anos. </Text>
     </View>
   );
 }
+
+export default App;
