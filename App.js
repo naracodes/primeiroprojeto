@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, Alert } from "react-native";
+import { View, Text, Button, StyleSheet } from "react-native";
 
 function App(){
   const [nome, setNome] = useState('usuário');
@@ -11,13 +11,26 @@ function App(){
   }
 
   return(
-    <View>
+    <View style={styles.area}>
       <Button title="Mudar nome" onPress={ () => entrar('Nara Alencar', 25)} />
 
-      <Text style={{ fontSize: 18, margin: 15 }}> Olá, {nome} </Text>
-      <Text> Você tem {idade} anos. </Text>
+      <Text style={[styles.titulo, styles.textoCentralizado]}> Olá, {nome} </Text>
+      <Text style={styles.titulo}> Você tem {idade} anos. </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  area: {
+    marginTop: 50
+  },
+  titulo: {
+    fontSize: 20,
+    color: 'red'
+  },
+  textoCentralizado: {
+    textAlign: 'center'
+  }
+});
 
 export default App;
