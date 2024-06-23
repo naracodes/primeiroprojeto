@@ -12,9 +12,6 @@ function App(){
 class App2 extends Component{
   render(){
 
-    let profissao = 'Desenvolvedora Full-stack';
-    let img = 'https://services.meteored.com/img/article/inteligencia-artificial-aprende-a-reconstruir-imagens-vistas-por-pessoas-ciencia-fotos-1679175318563_1280.jpg';
-
     return(
       <View>
         <Text>Olá, Mundo!</Text>
@@ -24,14 +21,7 @@ class App2 extends Component{
           Edinara Alencar
         </Text>
 
-        <Image
-         source={{ uri: img }}
-         style={{ width: 300, height: 300 }}
-        />
-
-        <Text style={{ fontSize: 18 }}>
-          {profissao}
-        </Text>
+        <Logo largura={300} altura={300} nome={'Desenvolvedora Full-stack'}/>
       </View>
       
     );
@@ -40,3 +30,15 @@ class App2 extends Component{
 }
 
 export default App2;
+
+function Logo(props){
+
+  let img = 'https://services.meteored.com/img/article/inteligencia-artificial-aprende-a-reconstruir-imagens-vistas-por-pessoas-ciencia-fotos-1679175318563_1280.jpg';
+
+  return(
+    <View>
+      <Image source={{ uri: img }} style={{ width: props.largura, height: props.altura }} />
+      <Text> {props.nome} </Text>
+    </View>
+  );
+}
